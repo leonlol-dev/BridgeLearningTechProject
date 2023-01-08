@@ -9,12 +9,17 @@ public class PlayerWallDetection : MonoBehaviour
     [SerializeField] private PlayerCubeTrigger top;
     [SerializeField] private PlayerCubeTrigger bottom;
 
-
+    public bool gameOver { get; private set; }
+    private void Start()
+    {
+        gameOver = false;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         if(left.activated == true && right.activated == true && top.activated == true && bottom.activated == true)
         {
+            gameOver = true;
             Debug.Log("game over");
         }
     }

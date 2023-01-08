@@ -9,7 +9,7 @@ public class ScoreTextScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
         text = GetComponent<TextMeshProUGUI>();    
     }
 

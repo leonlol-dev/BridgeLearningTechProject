@@ -410,9 +410,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 137411531}
+  - component: {fileID: 137411532}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,8 +431,20 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &137411532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137411530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e30e9ce98435044b4fbf27deb6c549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &497075368
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1131,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &959817733
 MonoBehaviour:
@@ -1186,6 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be4350d5cc7c7428fb1e08f9c60418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpawn: {fileID: 661251119}
 --- !u!65 &1167792237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1679,8 +1693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff2305110890f46a01c0406746c72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 11
-  force: 25
+  speed: 8
+  force: 850
 --- !u!850595691 &2085263765
 LightingSettings:
   m_ObjectHideFlags: 0

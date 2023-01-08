@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Score")
         {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(collision.relativeVelocity.normalized * force);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(collision.rigidbody.velocity.normalized * force);
         }
     }
 }

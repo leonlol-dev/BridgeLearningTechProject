@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ScoreTrigger : MonoBehaviour
 {
-    public GameManager gameManager;
+    [SerializeField] private Transform playerSpawn;
+
+    private GameManager gameManager;
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManager>();
@@ -15,6 +17,11 @@ public class ScoreTrigger : MonoBehaviour
         {
             gameManager.score += 1;
             Destroy(other.gameObject, 2f);
+        }
+
+        if(other.gameObject.tag == "Player")
+        {
+            other.gameObject.transform.position = playerSpawn.position;
         }
     }
 }

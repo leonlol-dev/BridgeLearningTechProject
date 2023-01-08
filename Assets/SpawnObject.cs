@@ -57,8 +57,13 @@ public class SpawnObject : MonoBehaviour
     }
 
     void SetSpawnPoint()
-    {
+    { 
         spawnPoint.position = RandomPointInBounds(spawnBoundaries.bounds);
+        Collider[] colliders = Physics.OverlapSphere(spawnPoint.position, 2f);
+        if(colliders.Length > 0)
+        {
+            spawnPoint.position = RandomPointInBounds(spawnBoundaries.bounds);
+        }
     }
 
     public static Vector3 RandomPointInBounds(Bounds bounds)
@@ -68,5 +73,11 @@ public class SpawnObject : MonoBehaviour
             Random.Range(bounds.min.y, bounds.max.y),
             Random.Range(bounds.min.z, bounds.max.z)
         );
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(spawnPoint.position, 2f);
     }
 }

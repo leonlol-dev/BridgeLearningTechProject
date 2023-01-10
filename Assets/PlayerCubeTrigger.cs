@@ -14,6 +14,15 @@ public class PlayerCubeTrigger : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other) 
+    {
+
+        if(other.gameObject.tag == "Wall")
+        {
+            activated = true;
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Wall")
@@ -21,4 +30,4 @@ public class PlayerCubeTrigger : MonoBehaviour
             activated = false;
         }
     }
-}
+} 

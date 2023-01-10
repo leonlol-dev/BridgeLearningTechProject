@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2846214, g: 0.37120992, b: 0.498806, a: 1}
+  m_IndirectSpecularColor: {r: 0.28462103, g: 0.37120906, b: 0.4988041, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1525,6 +1525,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e30e9ce98435044b4fbf27deb6c549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  capsule: {fileID: 3009819089257267582, guid: 52ed3681d60a2494f978e5c17100544b, type: 3}
+  sphere: {fileID: 9187780732174629247, guid: 30ba8494036b07743ad9aeb4b8c58b96, type: 3}
+  cube: {fileID: 4329390637082833130, guid: ee51da8f080c8a64181f86fa53283c53, type: 3}
+  barrel: {fileID: 7016978804958065530, guid: 546cb9a9975ca0a4da5453942885418c, type: 3}
+  scoreObjectText: 
+  scoreObjectChangeRate: 10
 --- !u!1 &139196365
 GameObject:
   m_ObjectHideFlags: 0
@@ -16940,7 +16946,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh27984
+  m_Name: pb_Mesh27902
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18982,7 +18988,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714117695}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1e8a526e5b6d7d842845cb7805441819, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -23605,6 +23611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -24140,10 +24147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

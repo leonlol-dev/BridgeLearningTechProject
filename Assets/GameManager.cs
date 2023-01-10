@@ -4,45 +4,53 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum type
-    {
-        Barrel,
-        Capsule,
-        Sphere,
-        Cube
-    }
-    public type scoreObject;
+    [SerializeField] private GameObject capsule;
+    [SerializeField] private GameObject sphere;
+    [SerializeField] private GameObject cube;
+    [SerializeField] private GameObject barrel;
+    public string scoreObjectText;
+    public float scoreObjectChangeRate = 10.0f;
     public GameObject doubleScoreObject { get; set; }
     public int score { get; set; }
+    
 
-    public void DoubleScoreObject()
+    private float timeToChangeObj;
+
+    private void Start() {
+        SetDoubleScoreObject();
+    }
+    
+    private void FixedUpdate() 
+    {
+        if(Time.time >= timeToChangeObj)
+        {
+            timeToChangeObj = Time.time + 1f * (scoreObjectChangeRate);
+            SetDoubleScoreObject();
+        }
+    }
+
+    //Sets the new object for double score.
+    public void SetDoubleScoreObject()
     {
         int chance = Random.Range(1, 4);
         switch (chance)
         {
             case 1:
-
+                doubleScoreObject = barrel;
+                scoreObjectText = "Barrel";
                 break;
-
             case 2:
-
+                doubleScoreObject = capsule;
+                scoreObjectText = "Capsule";
                 break;
-
             case 3:
-              
+                doubleScoreObject = sphere;
+                scoreObjectText = "Sphere";
                 break;
-
             case 4:
-
+                doubleScoreObject = cube;
+                scoreObjectText = "Cube";
                 break;
-        }
-    }
-
-    public void CheckDoubleScore(GameObject spawnObject)
-    {
-        if(spawnObject.gameObject.name == doubleScoreObject.gameObject.name)
-        {
-            score += 1;
         }
     }
 

@@ -15,6 +15,12 @@ public class ScoreTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "Score")
         {
+            // Checks if the name of the Game Object is the same as the double objects name plus clone because instantiated objects have clone added.
+            if(other.transform.gameObject.name == gameManager.doubleScoreObject.name + "(Clone)")
+            {
+                Debug.Log("Double Score!");
+                gameManager.score +=1;
+            }
             gameManager.score += 1;
             Destroy(other.gameObject, 2f);
         }

@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
     [Header("Object Spawner")]
     [SerializeField] private SpawnObject objectSpawner;
     [Space(20)]
+    [Header("Wall Spawner")]
+    [SerializeField] private WallScript wallSpawner;
+    [Space(20)]
     [Header("Game Over Condition")]
     [SerializeField] private PlayerWallDetection wallDetection;
     [Space(10)]
     [Header("Game Over UI")]
     [SerializeField] private GameObject gameOverManager;
     [Space(20)]
+
     
     [Header("Prefabs to set")]
     [SerializeField] private GameObject capsule;
@@ -23,6 +27,8 @@ public class GameManager : MonoBehaviour
     [Header("Variables")]
     public float scoreObjectChangeRate = 10.0f;
     public float objectSpawnRate = 1f;
+    public float wallSpawnRate = 0.66f;
+    private JSONReadWriteSystem jsonSystem;
 
     //Getters/setters
     public GameObject doubleScoreObject { get; set; }
@@ -31,9 +37,12 @@ public class GameManager : MonoBehaviour
     //private
     private string scoreObjectText = "error";
     private float timeToChangeObj;
+    private bool alreadySet = false;
 
     private void Start() {
+        jsonSystem = GetComponent<JSONReadWriteSystem>();
         objectSpawner.spawnRate = objectSpawnRate;
+        wallSpawner.spawnRate = wallSpawnRate;
         SetDoubleScoreObject();
     }
     
@@ -50,7 +59,22 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("game over");
             gameOverManager.SetActive(true);
+            if(alreadySet == false)
+            {
+                alreadySet = true;
+                gameOverManager.GetComponent<GameOverManager>().scoreText.text = "Your score was: " + score;
+                jsonSystem.SaveScoreDataToJson("tester1", score);
+                
+            }
+            
+        }
+
+        if(score == 100)
+        {
+            gameOverManager.SetActive(true);
+            gameOverManager.GetComponent<GameOverManager>().gameStateText.text = "YOU WIN!";
             gameOverManager.GetComponent<GameOverManager>().scoreText.text = "Your score was: " + score;
+            jsonSystem.SaveScoreDataToJson("tester1", score);
         }
     }
 

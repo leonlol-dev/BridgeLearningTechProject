@@ -10,10 +10,11 @@ public class WallScript : MonoBehaviour
     public float spawnRate = 0.5f;
     //Private
     private int index = 0;
-    private float nextTimeToActivate = 5f;
+    private float nextTimeToActivate;
 
     private void Start()
     {
+        nextTimeToActivate = spawnRate;
         Shuffle(walls);
     }
 

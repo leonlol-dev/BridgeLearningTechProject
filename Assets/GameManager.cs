@@ -4,19 +4,36 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Object Spawner")]
+    [SerializeField] private SpawnObject objectSpawner;
+    [Space(20)]
+    [Header("Game Over Condition")]
+    [SerializeField] private PlayerWallDetection wallDetection;
+    [Space(10)]
+    [Header("Game Over UI")]
+    [SerializeField] private GameObject gameOverManager;
+    [Space(20)]
+    
+    [Header("Prefabs to set")]
     [SerializeField] private GameObject capsule;
     [SerializeField] private GameObject sphere;
     [SerializeField] private GameObject cube;
     [SerializeField] private GameObject barrel;
-    public string scoreObjectText;
+    [Space(20)]
+    [Header("Variables")]
     public float scoreObjectChangeRate = 10.0f;
+    public float objectSpawnRate = 1f;
+
+    //Getters/setters
     public GameObject doubleScoreObject { get; set; }
     public int score { get; set; }
-    
 
+    //private
+    private string scoreObjectText = "error";
     private float timeToChangeObj;
 
     private void Start() {
+        objectSpawner.spawnRate = objectSpawnRate;
         SetDoubleScoreObject();
     }
     
@@ -26,6 +43,14 @@ public class GameManager : MonoBehaviour
         {
             timeToChangeObj = Time.time + 1f * (scoreObjectChangeRate);
             SetDoubleScoreObject();
+        }
+
+        //Game Over
+        if(wallDetection.gameOver == true)
+        {
+            Debug.Log("game over");
+            gameOverManager.SetActive(true);
+            gameOverManager.GetComponent<GameOverManager>().scoreText.text = "Your score was: " + score;
         }
     }
 

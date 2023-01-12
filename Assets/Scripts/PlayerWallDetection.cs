@@ -20,7 +20,7 @@ public class PlayerWallDetection : MonoBehaviour
         if(left.activated == true && right.activated == true && top.activated == true && bottom.activated == true)
         {
             gameOver = true;
-            Debug.Log("game over");
+            
         }
     }
 }

@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+public class GameOverManager : MonoBehaviour
+{
+    
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameStateText;
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    
+
+}
